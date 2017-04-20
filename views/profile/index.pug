@@ -1,0 +1,37 @@
+extends ../shared/layout
+
+include ../shared/head
+include ../shared/body
+
+append head-css
+    link(rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons")
+    
+
+block body-container
+    .container(style="width:100%;")
+        each val in data
+            .row
+                section.col.s12
+                    .card
+                        .card-image.waves-effect.waves-block.waves-light
+                            img.activator(src="http://demo.geekslabs.com/materialize/v2.3/layout03/images/user-profile-bg.jpg" style="height:250px;")
+
+                        img.avatar.img-circle(src="/uploads/avatars/" + val.avatar)
+
+                        .card-content(style="margin-left:200px;")
+                            span.card-title.activator.grey-text.text-darken-4 #{val.username}
+                                i.material-icons.right assignment_ind
+
+                            if val.rights
+                                p Administrateur
+                            else
+                                p Utilisateur
+
+                            .row.right(style="margin-right:3em;margin-top:-3em")
+                                a(href="profile/edit")
+                                    button.btn.btn-primary(type="submit") Edit
+
+                        .card-reveal
+                            span.card-title.grey-text.text-darken-4 EMail : #{val.email}
+                                i.material-icons.right close
+                            p Date de Création : #{val.created_at}

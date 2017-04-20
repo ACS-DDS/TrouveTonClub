@@ -1,0 +1,200 @@
+extends shared/layout
+
+include shared/head
+include shared/body
+
+block body-container
+    section#main.p-relative(role='main')
+      // Sidebar
+      aside#sidebar-p
+        // Sidbar Widgets
+        .side-widgets.overflow(style="margin-left:24px;")
+          // Profile Menu
+          #profile-menu.text-center.s-widget.m-b-25.dropdown
+            a(href='',data-toggle='dropdown')
+              img.profile-pic.animated(src='http://www.linuxscrew.com/wp-content/uploads/2007/11/120px-crystal_128_penguin.png',alt='')
+            ul.dropdown-menu.profile-menu
+              li
+                a(href='') Mon Profil
+                i.icon.left 
+                i.icon.right 
+              li
+                a(href='') Alertes
+                i.icon.left 
+                i.icon.right 
+              li
+                a(href='') Options
+                i.icon.left 
+                i.icon.right 
+              li
+                a(href='') Deconnexion
+                i.icon.left 
+                i.icon.right 
+            h4.m-0 Gerard Mensoif
+            |                         trouvetonclub@live.fr
+          // Calendar
+          .s-widget.m-b-25
+            #sidebar-calendar
+      // Content
+      section#content.container
+        // Messages Drawer
+        // Notification Drawer
+        #notifications.tile.drawer.animated
+          .listview.narrow
+            .media
+              a(href='') Notifications
+              span.drawer-close ×
+            .overflow(style='height:254px')
+              .media
+                .pull-left
+                  img(width='40',src='img/profile-pics/1.jpg',alt='')
+                .media-body
+                  small.text-muted Harry Gole - Il y a 26 minutes
+                  br
+                  a.t-overflow(href='')
+                    | J'aimes les fruits et les légumes ! C'est bon pour la santé.
+        // Breadcrumb
+        ol.breadcrumb.hidden-xs
+          li
+            a(href='#') Accueil
+          li
+            a(href='#') Librairies
+          li.active Parametres
+        h4.page-title PARAMETRES
+        // Shortcuts
+        .block-area.shortcut-area
+          a.shortcut.tile(href='index')
+            img(src='img/shortcuts/reports.png',alt='')
+            small.t-overflow DashBord
+          a.shortcut.tile(href='data/list' target="blank")
+            img(src='img/shortcuts/stats.png',alt='')
+            small.t-overflow Editer BDD
+          a.shortcut.tile(href='content-widgets')
+            img(src='img/shortcuts/reports.png',alt='')
+            small.t-overflow Paramètres
+          a.shortcut.tile(href='calendar')
+            img(src='img/shortcuts/calendar.png',alt='')
+            small.t-overflow Calendrier
+          a.shortcut.tile(href='other-components')
+            img(src='img/shortcuts/stats.png',alt='')
+            small.t-overflow Informations
+          a.shortcut.tile(href='#!')
+            img(src='img/shortcuts/twitter.png',alt='')
+            small.t-overflow Tweets
+        hr.whiter
+
+        .block-area
+          .alert.alert-info.alert-dismissable.fade.in
+            button.close(type='button',data-dismiss='alert',aria-hidden='true') &times;
+            |                         Attention,je ne sais pas quoi ecrire ici..
+        |
+        .col-md-12.clearfix
+          #calendar.p-relative.p-10.m-b-20
+            // Calendar Views
+            ul.calendar-actions.list-inline.clearfix
+              li.p-r-0
+                a.tooltips(data-view='month',href='#',title='Month')
+                  i.sa-list-month
+              |
+              li.p-r-0
+                a.tooltips(data-view='agendaWeek',href='#',title='Week')
+                  i.sa-list-week
+              |
+              li.p-r-0
+                a.tooltips(data-view='agendaDay',href='#',title='Day')
+                  i.sa-list-day
+        |
+        |
+        br
+        br
+
+append footer-script
+    script(type="text/javascript" src="js/validation/validate.min.js")
+    script(type="text/javascript" src="js/validation/validationEngine.min.js")
+    script(type="text/javascript").
+        $(document).ready(function(){
+            var date = new Date();
+            var d = date.getDate();
+            var m = date.getMonth();
+            var y = date.getFullYear();
+            $("#calendar").fullCalendar({
+                header:{
+                    center:"title",
+                    left:"prev,next",
+                    right:""
+                },
+                selectable:true,
+                selectHelper:true,
+                editable:true,
+                events:[
+                    {
+                        title:"Hangout with friends",
+                        start:new Date(y,m,1),
+                        end:new Date(y,m,2)
+                    },{
+                        title:"Meeting with client",
+                        start:new Date(y,m,10),
+                        allDay:true
+                    },{
+                        title:"Repeat Event",
+                        start:new Date(y,m,18),
+                        allDay:true
+                    },{
+                        title:"Semester Exam",
+                        start:new Date(y,m,20),
+                        end:new Date(y,m,23)
+                    },{
+                        title:"Soccor match",
+                        start:new Date(y,m,5),
+                        end:new Date(y,m,6)
+                    },{
+                        title:"Coffee time",
+                        start:new Date(y,m,21),
+                    },{
+                        title:"Job Interview",
+                        start:new Date(y,m,5),
+                    }
+                ],
+                // On Day Select
+                select:function(start,end,allDay) {
+                    $("#addNew-event").modal("show");
+                    $("#addNew-event input:text").val("");
+                    $("#getStart").val(start);
+                    $("#getEnd").val(end);
+                },
+                eventResize:function(event,dayDelta,minuteDelta,revertFunc){
+                    $("#editEvent").modal("show");
+                    var info = "The end date of " + event.title + "has been moved " + dayDelta + " days and " + minuteDelta + " minutes.";
+                    $("#eventInfo")(info);
+                    $("#editEvent #editCancel").click(function(){
+                        revertFunc();
+                    });
+                }
+            });
+            $("body").on("click","#addEvent",function(){
+                var eventForm = $(this).closest(".modal").find(".form-validation");
+                eventForm.validationEngine("validate");
+                if (!(eventForm).find(".formErrorContent")[0]) {
+                    //Event Name
+                    var eventName = $("#eventName").val();
+                    //Render Event
+                    $("#calendar").fullCalendar("renderEvent",{
+                        title:eventName,
+                        start:$("#getStart").val(),
+                        end:   $("#getEnd").val(),
+                        allDay:true,
+                    },true ); //Stick the event
+                    $("#addNew-event form")[0].reset()
+                    $("#addNew-event").modal("hide");
+                }
+            });
+        });
+        // Calendar views
+        $("body").on("click",".calendar-actions > li > a",function(e){
+            e.preventDefault();
+            var dataView = $(this).attr("data-view");
+            $("#calendar").fullCalendar("changeView",dataView);
+            //Custom scrollbar
+            var overflowRegular,overflowInvisible = false;
+            overflowRegular = $(".overflow").niceScroll();
+        });

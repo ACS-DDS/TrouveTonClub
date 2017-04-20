@@ -1,0 +1,40 @@
+extends shared/layout
+
+include shared/head
+include shared/body
+
+block body-container
+    .container
+        #cherche.intro-heading
+            p Trouve ton club de sport près de chez toi !
+
+        .form
+            .col-lg-12.col-md-6
+                form(method="post" action="list")
+                    input#city.search(type="text" placeholder="Chercher une ville..." name="search")
+                    input.search(type="checkbox" checked disabled)
+                    input.go.btn-floating.btn-large.cyan.pulse.waves-effect.waves-light(type="submit" value="Go")
+
+    .parallax-container
+        .parallax
+            img(src="/images/pleinair.jpg")
+
+    #about.section.white
+        .row.container
+            h2.header La forme à fond
+            p.grey-text.text-darken-3.lighten-3 Retrouvez votre forme grâce à la pratique sportive, renforcez votre mental et faites-vous des amis près de vous grâce à votre club de sport.
+
+    .parallax-container
+        .parallax
+            img(src="/images/muscu.jpeg")
+
+append footer-script
+    script(type="text/javascript").
+        $(document).ready(function(){
+            $(".parallax").parallax();
+            $(".modal").modal();
+        });
+        $("#login").modal("open");
+        $("#login").modal("close");
+        $("#register").modal("open");
+        $("#register").modal("close");

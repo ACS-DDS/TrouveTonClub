@@ -1,0 +1,53 @@
+extends ../shared/layout
+
+include ../shared/head
+include ../shared/body
+
+append head-css
+    link(rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons")
+
+block body-container
+    .container(style="width:100%;")
+        each val in data
+            .row.left(style="width:40%")
+                section.col.s12
+                    .card
+                        .card-image.waves-effect.waves-block.waves-light
+                            img.activator(src="http://demo.geekslabs.com/materialize/v2.3/layout03/images/user-profile-bg.jpg" style="height:250px;")
+                        img.avatar.img-circle(src="/uploads/avatars/" + val.avatar)
+                        .card-content(style="margin-left:200px;")
+                            span.card-title.activator.grey-text.text-darken-4 #{val.username}
+                                i.material-icons.right assignment_ind
+                            if val.rights
+                                p Administrateur
+                            else
+                                p Utilisateur
+                        .card-reveal
+                            span.card-title.grey-text.text-darken-4 #{val.email}
+                                i.material-icons.right close
+                            p #{val.created_at}
+            .row.right(style="width:60%")
+                form(method="post" class="col s12")
+                    .row(style="width:40%")
+                        .input-field.col.s12
+                            input.validate(type="text" name="username" placeholder=val.username)
+                            label(for="username") Username
+                    .row.right(style="width:60%;margin-top:-7em")
+                        .input-field.col.s12
+                            input.validate(type="text" name="email" placeholder=val.email)
+                            label(for="email") Email
+                    .row(style="width:50%")
+                        .input-field.col.s12
+                            input.validate(type="password" name="password")
+                            label(for="password") Mot de passe
+                    .row.right(style="width:50%;margin-top:-7em")
+                        .input-field.col.s12
+                            input.validate(type="password" name="password_confirm")
+                            label(for="password_confirm") Confirmer Mot de passe
+                    .row(style="width:50%")
+                        .input-field.col.s12
+                            input.validate(type="file" name="avatar")
+                            label(for="avatar") Avatar
+                    .row.right(style="margin-top:-5em")
+                        .input-field.col.s12
+                            input(type="submit" class="btn-submit btn waves-effect waves-light" value="Modifier")

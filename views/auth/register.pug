@@ -1,0 +1,33 @@
+extends ../shared/layout
+
+include ../shared/head
+include ../shared/body
+
+block body-container
+	.container
+		h1.title-login Tu es nouveau ? Inscris-toi !
+		.row
+			form.col.s12(method="post")
+				.row
+					.input-field.col.s12
+						label(for="username") Pseudo
+						input.validate(type="text" name="username" autofocus="true")
+
+				.row
+					.input-field.col.s12
+						label(for="email") Votre email
+						input.validate(type="email" name="email")
+
+				.row
+					.input-field.col.s12
+						label(for="password") Mot de passe
+						input.validate(type="password" name="password")
+
+				.row
+					.input-field.col.s12
+						label(for="password_confirm") Confirmer le mot de passe
+						input.validate(type="password" name="password_confirm")
+
+				.row
+					.input-field.col.s12(style="text-align:center;")
+						input.btn-submit.btn.waves-effect.waves-light(type="submit" value="S'inscrire")

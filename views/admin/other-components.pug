@@ -1,0 +1,230 @@
+doctype html
+//if IE 9
+  html.ie9
+html
+  head
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0')
+    |
+    meta(name='format-detection', content='telephone=no')
+    |
+    meta(charset='UTF-8')
+    |
+    meta(name='description', content='Violate Responsive Admin Template')
+    |
+    meta(name='keywords', content='Super Admin, Admin, Template, Bootstrap')
+    |
+    title Super Admin Responsive Template
+    // CSS
+    link(href='css/bootstrap.min.css', rel='stylesheet')
+    |
+    link(href='css/animate.min.css', rel='stylesheet')
+    |
+    link(href='css/font-awesome.min.css', rel='stylesheet')
+    |
+    link(href='css/form.css', rel='stylesheet')
+    |
+    link(href='css/calendar.css', rel='stylesheet')
+    |
+    link(href='css/style.css', rel='stylesheet')
+    |
+    link(href='css/icons.css', rel='stylesheet')
+    |
+    link(href='css/generics.css', rel='stylesheet')
+  |
+  body#skin-blur-violate
+    header#header.media
+      a.logo.pull-left(href='/' target="blank" style="padding-right:3%;") ALLER AU SITE
+      .media-body
+        #top-menu.media
+          .pull-left.tm-icon
+            a.drawer-toggle(data-drawer='notifications', href='')
+              i.sa-top-updates
+              i.n-count.animated 1
+              span Updates
+          #time.pull-right
+            span#hours
+            |                         :
+            span#min
+            |                         :
+            span#sec
+          .media-body
+            input.main-search(type='text')
+    .clearfix
+    section#main.p-relative(role='main')
+      // Sidebar
+      aside#sidebar-p
+        // Sidbar Widgets
+        .side-widgets.overflow(style="margin-left: 24px;")
+          // Profile Menu
+          #profile-menu.text-center.s-widget.m-b-25.dropdown
+            a(href='', data-toggle='dropdown')
+              img.profile-pic.animated(src='http://www.linuxscrew.com/wp-content/uploads/2007/11/120px-crystal_128_penguin.png', alt='')
+            ul.dropdown-menu.profile-menu
+              li
+                a(href='') Mon Profil
+                i.icon.left 
+                i.icon.right 
+              li
+                a(href='') Alertes
+                i.icon.left 
+                i.icon.right 
+              li
+                a(href='') Options
+                i.icon.left 
+                i.icon.right 
+              li
+                a(href='') Deconnexion
+                i.icon.left 
+                i.icon.right 
+            h4.m-0 Gerard Mensoif
+            |                         trouvetonclub@live.fr
+          // Calendar
+          .s-widget.m-b-25
+            #sidebar-calendar
+      // Content
+      section#content.container
+        // Messages Drawer
+        // Notification Drawer
+        #notifications.tile.drawer.animated
+          .listview.narrow
+            .media
+              a(href='') Notifications
+              span.drawer-close ×
+            .overflow(style='height: 254px')
+              .media
+                .pull-left
+                  img(width='40', src='img/profile-pics/1.jpg', alt='')
+                .media-body
+                  small.text-muted Harry Gole - Il y a 26 minutes
+                  br
+                  a.t-overflow(href='')
+                    | J'aimes les fruits et les légumes ! C'est bon pour la santé.
+        // Breadcrumb
+        ol.breadcrumb.hidden-xs
+          li
+            a(href='#') Accueil
+          li
+            a(href='#') Librairies
+          li.active Stats
+        h4.page-title INFORMATIONS
+        // Shortcuts
+        .block-area.shortcut-area
+          a.shortcut.tile(href='index')
+            img(src='img/shortcuts/reports.png', alt='')
+            small.t-overflow DashBord
+          a.shortcut.tile(href='data/list' target="blank")
+            img(src='img/shortcuts/stats.png', alt='')
+            small.t-overflow Editer BDD
+          a.shortcut.tile(href='content-widgets')
+            img(src='img/shortcuts/reports.png', alt='')
+            small.t-overflow Paramètres
+          a.shortcut.tile(href='calendar')
+            img(src='img/shortcuts/calendar.png', alt='')
+            small.t-overflow Calendrier
+          a.shortcut.tile(href='other-components')
+            img(src='img/shortcuts/stats.png', alt='')
+            small.t-overflow Informations
+          a.shortcut.tile(href='#!')
+            img(src='img/shortcuts/twitter.png', alt='')
+            small.t-overflow Tweets
+        hr.whiter
+        // Content Boxes
+        #content-boxes.block-area
+          h3.block-title Infos utiles
+          |
+          |
+          .row
+            .col-sm-6.col-md-4
+              .thumbnail.tile
+                img(src='http://donpk.com/wp-content/uploads/2016/04/Beautiful_nature_3d_wallpapers_for-desktop_brackgrounds10-345x250.jpg', alt='')
+                |
+                .p-15
+                  h4 Recherche de clubs
+                  |
+                  p
+                    | Ceci n'est qu'un malheureux texte de type texte car je ne sais pas quoi mettre, rt si t'es triste.
+                  |
+                  
+            |
+            |
+            .col-sm-6.col-md-4
+              .thumbnail.tile
+                img(src='http://donpk.com/wp-content/uploads/2016/04/Beautiful_nature_3d_wallpapers_for-desktop_brackgrounds10-345x250.jpg', alt='')
+                |
+                .p-15
+                  h4 Stats de recherche
+                  |
+                  p
+                    | Ceci n'est qu'un malheureux texte de type texte car je ne sais pas quoi mettre, rt si t'es triste.
+                  |
+                  
+            |
+            |
+            .col-sm-6.col-md-4
+              .thumbnail.tile
+                img(src='http://donpk.com/wp-content/uploads/2016/04/Beautiful_nature_3d_wallpapers_for-desktop_brackgrounds10-345x250.jpg', alt='')
+                |
+                .p-15
+                  h4 Actualités et nouveautés
+                  |
+                  p
+                    | Ceci n'est qu'un malheureux texte de type texte car je ne sais pas quoi mettre, rt si t'es triste.
+                  |
+                  
+        |
+        |
+        hr.whiter.m-t-10
+
+        // List Groups
+        #list-groups.block-area
+          |
+          |
+          p Quelques liens
+          |
+          .list-group.block
+            a.list-group-item.active(href='#')
+              | Ceci est un lien ?
+              span.badge 14
+            |
+            a.list-group-item(href='#') Clique 
+            |
+            a.list-group-item(href='#') Clique pas
+            |
+            a.list-group-item(href='#') Re clique
+            |
+            a.list-group-item(href='#') Re clique pas
+        |
+        |
+        hr.whiter
+        // Panel
+        #Panel.block-area
+          h3.block-title Panel
+          |
+          |
+          .panel.panel-default.tile
+            .panel-heading
+              h3.panel-title Panel title
+            |
+            .panel-body
+              | Exemple de petit article, sympa ou pas ?
+            |
+            .panel-footer MINI FOOTER
+        |
+        |
+        hr.whiter
+    // Javascript Libraries
+    // jQuery
+    script(src='js/jquery.min.js')
+    // jQuery Library
+    // Bootstrap
+    script(src='js/bootstrap.min.js')
+    // UX
+    script(src='js/scroll.min.js')
+    // Custom Scrollbar
+    // Other
+    script(src='js/calendar.min.js')
+    // Calendar
+    script(src='js/feeds.min.js')
+    // News Feeds
+    // All JS functions
+    script(src='js/functions.js')

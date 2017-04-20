@@ -1,0 +1,17 @@
+#navbar.bar-menu.navbar-collapse.collapse
+	ul.nav.navbar-nav
+		block navbar-left
+			include navbar-left
+
+	ul.nav.navbar-nav.navbar-right
+		unless auth
+			block navbar-right-not-logged
+				include navbar-right-not-logged
+
+		else
+			if isadmin
+				block navbar-right-admin
+					include navbar-right-admin
+
+			block navbar-right-logged
+				include navbar-right-logged

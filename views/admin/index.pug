@@ -1,0 +1,319 @@
+extends shared/layout
+
+include shared/head
+include shared/body
+
+block body-container
+    section#main.p-relative(role="main")
+        // Sidebar
+        aside#sidebar-p
+            // Sidbar Widgets
+            .side-widgets.overflow(style="margin-left: 24px;")
+                // Profile Menu
+                #profile-menu.text-center.s-widget.m-b-25.dropdown
+                    a(href="" data-toggle="dropdown")
+                        img.profile-pic.animated(src="http://www.linuxscrew.com/wp-content/uploads/2007/11/120px-crystal_128_penguin.png" alt="")
+                    ul.dropdown-menu.profile-menu
+                        li
+                            a(href="/profile") Mon Profil
+                            i.icon.left 
+                            i.icon.right 
+                        li
+                            a(href="#") Alertes
+                            i.icon.left 
+                            i.icon.right 
+                        li
+                            a(href="#") Options
+                            i.icon.left 
+                            i.icon.right 
+                        li
+                            a(href="/logout") Deconnexion
+                            i.icon.left 
+                            i.icon.right 
+                    h4.m-0 Gerard Mensoif
+                    | trouvetonclub@live.fr
+                // Calendar
+                .s-widget.m-b-25
+                    #sidebar-calendar
+        // Content
+        section#content.container
+            // Messages Drawer
+            // Notification Drawer
+            #notifications.tile.drawer.animated
+                .listview.narrow
+                    .media
+                        a(href="") Notifications
+                        span.drawer-close ×
+                    .overflow(style="height:254px")
+                        .media
+                            .pull-left
+                                img(width="40" src="img/profile-pics/1.jpg" alt="")
+                            .media-body
+                                small.text-muted Harry Gole - Il y a 26 minutes
+                                br
+                                a.t-overflow(href="")
+                                    | J"aimes les fruits et les légumes ! C"est bon pour la santé.
+            // Breadcrumb
+            ol.breadcrumb.hidden-xs
+                li
+                    a(href="#") Accueil
+                li
+                    a(href="#") Librairies
+                li.active Stats
+            h4.page-title TABLEAU DE BORD
+            // Shortcuts
+            .block-area.shortcut-area
+                a.shortcut.tile(href="index")
+                    img(src="img/shortcuts/reports.png", alt="")
+                    small.t-overflow DashBord
+                a.shortcut.tile(href="data/list" target="blank")
+                    img(src="img/shortcuts/stats.png", alt="")
+                    small.t-overflow Editer BDD
+                a.shortcut.tile(href="content-widgets")
+                    img(src="img/shortcuts/reports.png", alt="")
+                    small.t-overflow Paramètres
+                a.shortcut.tile(href="calendar")
+                    img(src="img/shortcuts/calendar.png", alt="")
+                    small.t-overflow Calendrier
+                a.shortcut.tile(href="other-components")
+                    img(src="img/shortcuts/stats.png", alt="")
+                    small.t-overflow Informations
+                a.shortcut.tile(href="#!")
+                    img(src="img/shortcuts/twitter.png", alt="")
+                    small.t-overflow Tweets
+            hr.whiter
+            // Quick Stats
+            .block-area
+                .row
+                    .col-md-3.col-xs-6
+                        .tile.quick-stats
+                            #stats-line-2.pull-left
+                            .data
+                                h2(data-value="2315") 0
+                                small Visites en moyenne
+                    .col-md-3.col-xs-6
+                        .tile.quick-stats.media
+                            #stats-line-3.pull-left
+                            .media-body
+                                h2(data-value="1484") 0
+                                small Recherches effectuées
+                    .col-md-3.col-xs-6
+                        .tile.quick-stats.media
+                            #stats-line-4.pull-left
+                            .media-body
+                                h2(data-value="254") 0
+                                small Membres inscrits
+                    .col-md-3.col-xs-6
+                        .tile.quick-stats.media
+                            #stats-line.pull-left
+                            .media-body
+                                h2(data-value="325") 0
+                                small Messages
+            hr.whiter
+            // Main Widgets
+            .block-area
+                .row
+                    .col-md-8
+                        // Main Chart
+                        // Pies
+                        .tile.text-center
+                            .tile-dark.p-10
+                                .pie-chart-tiny(data-percent="86")
+                                    span.percent
+                                    span.pie-title
+                                        | Visiteurs
+                                        i.m-l-5.fa.fa-retweet
+                                .pie-chart-tiny(data-percent="23")
+                                    span.percent
+                                    span.pie-title
+                                        | Membres
+                                        i.m-l-5.fa.fa-retweet
+                                .pie-chart-tiny(data-percent="57")
+                                    span.percent
+                                    span.pie-title
+                                        | Emails
+                                        i.m-l-5.fa.fa-retweet
+                                .pie-chart-tiny(data-percent="34")
+                                    span.percent
+                                    span.pie-title
+                                        | Recherches
+                                        i.m-l-5.fa.fa-retweet
+                                .pie-chart-tiny(data-percent="81")
+                                    span.percent
+                                    span.pie-title
+                                        | Messages
+                                        i.m-l-5.fa.fa-retweet
+                        // Recent Postings
+                        .row
+                            .col-md-6
+                                .tile
+                                    h2.tile-title Derniers commentaires
+                                    .tile-config.dropdown
+                                        a.tile-menu(data-toggle="dropdown", href="")
+                                        ul.dropdown-menu.animated.pull-right.text-right
+                                            li
+                                                a(href="") Rafraichir
+                                    .listview.narrow
+                                        .media.p-l-5
+                                            .pull-left
+                                                img(width="40", src="img/profile-pics/1.jpg", alt="")
+                                            .media-body
+                                                small.text-muted Il y a 3 heures par Patrick Menfait
+                                                br
+                                                a.t-overflow(href="") J"ai trouvé mon CLub tout de suite !
+                                        .media.p-l-5
+                                            .pull-left
+                                                img(width="40", src="img/profile-pics/2.jpg", alt="")
+                                            .media-body
+                                                small.text-muted Il y a 1 heure par Jean Peuplu
+                                                br
+                                                a.t-overflow(href="") Recherche un peu longue.. mais efficace !
+                                        .media.p-l-5
+                                            .pull-left
+                                                img(width="40", src="img/profile-pics/3.jpg", alt="")
+                                            .media-body
+                                                small.text-muted Il y a 34 minutes par Quentin Balle
+                                                br
+                                                a.t-overflow(href="") J"comprend pas le principe
+                                        .media.p-l-5
+                                            .pull-left
+                                                img(width="40", src="img/profile-pics/4.jpg", alt="")
+                                            .media-body
+                                                small.text-muted Il y a 12 minutes par Matt Udit
+                                                br
+                                                a.t-overflow(href="") Très bonne application.
+                                        .media.p-l-5
+                                            .pull-left
+                                                img(width="40", src="img/profile-pics/5.jpg", alt="")
+                                            .media-body
+                                                small.text-muted Il y a 57 secondes par Celia Meilleur
+                                                br
+                                                a.t-overflow(href="") Quelques erreurs..
+                                        .media.p-5.text-center.l-100
+                                            a(href="")
+                                                small TOUT VOIR..
+                            // Tasks to do
+                            .col-md-6
+                                .tile
+                                    h2.tile-title Tâches à faire
+                                    .tile-config.dropdown
+                                        a.tile-menu(data-toggle="dropdown", href="")
+                                        ul.dropdown-menu.pull-right.text-right
+                                            li#todo-refresh
+                                                a(href="") Rafraichir
+                                    .listview.todo-list.sortable
+                                        .media
+                                            .checkbox.m-0
+                                                label.t-overflow
+                                                    input(type="checkbox")
+                                                    | Faire le formulaire de contact fonctionnel
+                                        .media
+                                            .checkbox.m-0
+                                                label.t-overflow
+                                                    input(type="checkbox")
+                                                    | Retoucher la NavBar (CSS)
+                                        .media
+                                            .checkbox.m-0
+                                                label.t-overflow
+                                                    input(type="checkbox")
+                                                    | Compléter le footer
+                                        .media
+                                            .checkbox.m-0
+                                                label.t-overflow
+                                                    input(type="checkbox")
+                                                    | Corriger quelques bugs
+                                    h2.tile-title Tâches terminée
+                                    .listview.todo-list.sortable
+                                        .media
+                                            .checkbox.m-0
+                                                label.t-overflow
+                                                    input(type="checkbox", checked="checked")
+                                                    | Finir le panel Admin
+                                        .media
+                                            .checkbox.m-0
+                                                label.t-overflow
+                                                    input(type="checkbox", checked="checked")
+                                                    | Finir le site complet
+                                        .media
+                                            .checkbox.m-0
+                                                label.t-overflow
+                                                    input(type="checkbox", checked="checked")
+                                                    | Faire le tri des commentaires
+                        .clearfix
+                    .col-md-4
+                        // Dynamic Chart
+                        .tile
+                            h2.tile-title Processus Application
+                            .tile-config.dropdown
+                                a.tile-menu(data-toggle="dropdown", href="")
+                                ul.dropdown-menu.pull-right.text-right
+                                    li
+                                        a(href="") Rafraichir
+                            .p-t-10.p-r-5.p-b-5
+                                #dynamic-chart(style="height: 200px")
+                        // Activity
+                        .tile
+                            h2.tile-title Stats et acivités réseaux sociaux
+                            .tile-config.dropdown
+                                a.tile-menu(data-toggle="dropdown", href="")
+                                ul.dropdown-menu.pull-right.text-right
+                                    li
+                                        a(href="") Rafraichir
+                            .listview.narrow
+                                .media
+                                    .pull-right
+                                        .counts 27 568
+                                    .media-body
+                                        h6 LIKES FACEBOOK
+                                .media
+                                    .pull-right
+                                        .counts 1450
+                                    .media-body
+                                        h6 SUIVIS GOOGLE+
+                                .media
+                                    .pull-right
+                                        .counts 152 658
+                                    .media-body
+                                        h6 VUES YOUTUBES
+                                .media
+                                    .pull-right
+                                        .counts 36 247
+                                    .media-body
+                                        h6 FOLLOWERS TWITTER
+                                .media
+                                    .pull-right
+                                        .counts 126
+                                    .media-body
+                                        h6 COMMENTAIRES SUR L'APPLICATION
+                    .clearfix
+        // Older IE Message
+        //if lt IE 9
+            .ie-block
+                h1.Ops Ooops!
+                p
+                    | You are using an outdated version of Internet Explorer, upgrade to any of the following web browser in order to access the maximum functionality of this website.
+                ul.browsers
+                    li
+                        a(href="https://www.google.com/intl/en/chrome/browser/")
+                            img(src="img/browsers/chrome.png", alt="")
+                            div Google Chrome
+                    li
+                        a(href="http://www.mozilla.org/en-US/firefox/new/")
+                            img(src="img/browsers/firefox.png", alt="")
+                            div Mozilla Firefox
+                    li
+                        a(href="http://www.opera.com/computer/windows")
+                            img(src="img/browsers/opera.png", alt="")
+                            div Opera
+                    li
+                        a(href="http://safari.en.softonic.com/")
+                            img(src="img/browsers/safari.png", alt="")
+                            div Safari
+                    li
+                        a(href="http://windows.microsoft.com/en-us/internet-explorer/downloads/ie-10/worldwide-languages")
+                            img(src="img/browsers/ie.png", alt="")
+                            div Internet Explorer(New)
+                p
+                    | Upgrade your browser for a Safer and Faster web experience.
+                    br
+                    | Thank you for your patience...

@@ -1,0 +1,43 @@
+#login.no-top.modal.modal-fixed-footer
+    .modal-content
+        h4 Bon retour parmi nous !
+        p Connecte toi avec tes identifiants :
+        hr
+        .row
+            form(method="post" action="/login")
+                .row.left(style="width:50%")
+                    .input-field.col.s12
+                        input.validate(type="text" name="username" autofocus="true")
+                        label(for="username") Pseudo
+                .row.right(style="width:50%")
+                    .input-field.col.s12
+                        input.validate(type="password" name="password")
+                        label(for="password") Mot de passe
+                .row
+                    input.modal-action.modal-close.btn-submit.btn.waves-effect.waves-light(type="submit" value="Se connecter")
+
+#register.no-top.modal.modal-fixed-footer
+    .modal-content
+        h4 Tu es nouveau ? Inscrit toi !
+        p Crée ton compte dès maintenant :
+        hr
+        .row
+            form(method="post" action="/register")
+                .row
+                    .input-field.col.s12
+                        input.validate(type="text" name="username" autofocus="true")
+                        label(for="username") Pseudo
+                .row
+                    .input-field.col.s12
+                        input.validate(type="email" name="email")
+                        label(for="email") Votre email
+                .row
+                    .input-field.col.s12
+                        input.validate(type="password" name="password")
+                        label(for="password") Mot de passe
+                .row
+                    .input-field.col.s12
+                        input.validate(type="password" name="password_confirm")
+                        label(for="password_confirm") Confirmer le mot de passe
+                .row.right
+                    input.modal-action.modal-close.btn-submit.btn.waves-effect.waves-light(type="submit" value="S'inscrire")

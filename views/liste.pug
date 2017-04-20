@@ -1,0 +1,66 @@
+extends shared/layout
+
+include shared/head
+include shared/body
+
+append head-css
+    link(rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons")
+    link(rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css")
+
+append head-js
+    script(type="text/javascript" src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js")
+
+block body-container
+    .container
+        .row
+            section.col.s12
+                each val in data
+                    article.card
+                        .card-image.waves-effect.waves-block.waves-light
+                            .bloc-map(style="width:100%;height:16em" id="mapid" + val.id)
+
+                            //- img.activator(src="https://placehold.it/500x140")
+
+                        .card-content
+                            span.card-title.activator.grey-text.text-darken-4 #{val.inslieudit} (#{val.cominsee})
+                                i.material-icons.right more_vert
+                            p #{val.comlib}
+
+                        .card-reveal
+                            span.card-title.grey-text.text-darken-4 #{val.insnom} (#{val.deplib})
+                                i.material-icons.right close
+                            p #{val.inspartlibelle}
+                            date #{val.insdatecreation} (#{val.insdatemaj})
+                            a(href="club/" + val.id) Voir le Club...
+
+                else
+                    .container
+                        div(class="alert alert-dismissible alert-danger")
+                            p Aucun club n'a été trouvé pour <b>#{search}</b>...
+                            p Vérifier l'orthographe de votre recherche.  
+                            p Retour a 
+                                a(href="/") l'accueil
+
+append footer-script
+    script.
+        function geocode(a,b){
+            $.getJSON("https://maps.google.com/maps/api/geocode/json?address=" + a + "+" + b + "+France",function(c){
+                return (c.results["0"].geometry.location.lat + ", " + c.results["0"].geometry.location.lng) || "0,0";
+            });
+        };
+
+    each val in data
+        script(type="text/javascript").
+            var mymap = L.map("mapid#{val.id}").setView([geocode("#{val.inslieudit}",#{val.comlib})],13);
+
+            L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidmljdG9yeXNoIiwiYSI6ImNpeTVzdGI4MTAwMnMyd3J2OXZ3emdkeWcifQ.T7A873FB8CceQ5KvcO943Q",{
+                maxZoom:18,
+                attribution:'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' + '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' + 'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+                id:'mapbox.streets'
+            }).addTo(mymap);
+
+            var handiImg#{val.id} ='<img src="assets/img/auditif.svg" class="imgPop">';
+
+            var popup#{val.id} = L.popup({minWidth:100},{keepInView:"true"}).setContent("<a href='#etbm#{val.id}'><h5 class='card-title'>#{val.inslieudit}name_est</h5></a>" + handiImg#{val.id});
+            var marker#{val.id} = L.marker([geocode("#{val.inslieudit}",#{val.comlib})]).addTo(mymap);
+            marker#{val.id}.bindPopup(popup#{val.id});

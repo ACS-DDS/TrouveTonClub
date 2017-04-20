@@ -1,0 +1,21 @@
+extends ../shared/layout
+
+include ../shared/head
+include ../shared/body
+
+block body-container
+	.container
+		h3.title-login Bon retour parmi nous. Connecte-toi !
+		.row
+			form(method="post" class="col s12")
+				.row
+					.input-field.col.s12
+						input(type="text" name="username" class="validate")
+						label(for="username") Pseudo
+				.row
+					.input-field.col.s12
+						input(type="password" name="password" class="validate")
+						label(for="password") Mot de passe
+				.row
+					.input-field.col.s12.center
+						input(type="submit" class="btn-submit btn waves-effect waves-light" value="Se connecter")

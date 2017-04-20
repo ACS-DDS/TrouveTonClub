@@ -1,0 +1,35 @@
+extends shared/layout
+
+include shared/head
+include shared/body
+
+append head-css
+	link(rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons")
+
+block body-container
+	.container
+		.row
+			h3.title-contact Vous souhaitez nous contacter ?
+			form(class="col s12" method="post")
+				.row
+					div(class="input-field col s6")
+						i(class="material-icons prefix") account_circle
+						input(id="last_name" type="text" class="validate")
+						label(for="last_name") Votre Nom
+					div(class="input-field col s6")
+						i(class="material-icons prefix") perm_identity
+						input(id="first_name" type="text" class="validate")
+						label(for="first_name") Votre Prénom
+				.row
+					div(class="input-field col s12")
+						i(class="material-icons prefix") email
+						input(id="email" type="email" class="validate")
+						label(for="email") Votre Email
+				.row
+					div(class="input-field col s12")
+						i(class="material-icons prefix") message
+						textarea(id="message" class="materialize-textarea" class="validate")
+						label(for="message") Votre message
+				.row
+					div(class="input-field col s12" style="text-align:center;")
+						input(class="btn-submit btn waves-effect waves-light" type="submit" value="Envoyer")

@@ -1,0 +1,12 @@
+extends ../shared/layout
+
+include ../shared/head
+include ../shared/body
+
+block body-container
+	.container
+		.image404
+			center
+				img.img-responsive(src="/images/500.svg")
+
+		pre #{error}

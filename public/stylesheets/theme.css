@@ -1,0 +1,194 @@
+/*// sass-convert theme.sass theme.scss*/
+/*"Faster One",cursive;*/
+html {
+  font-family: "Lato", sans-serif;
+  font-family: "Alfa Slab One", cursive;
+  /*font-family:"Faster One",cursive;*/ }
+
+div.container > div.form {
+  text-align: center; }
+
+input#city.search {
+  text-align: center; }
+
+input.search[type^="checkbox"] {
+  width: 2%; }
+
+input.go.btn-floating.btn-large.cyan.pulse.waves-effect.waves-light {
+  font-family: "Arial",cursive; }
+
+a:hover, a {
+  text-decoration: none; }
+
+/*@media (min-width: 780px){
+#sidebar-p{
+    padding-left: 18px;
+ }
+}*/
+.avatar {
+  width: 110px;
+  position: absolute;
+  top: 190px;
+  z-index: 1;
+  left: 40px;
+  cursor: pointer;
+  margin: 0; }
+
+.center {
+  text-align: center; }
+
+.bar-menu {
+  position: absolute;
+  width: 100%;
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  top: 0;
+  text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.35); }
+
+.navbar-default,
+.navbar-nav > li > a {
+  color: white !important; }
+
+.modal.modal-fixed-footer {
+  height: 93%; }
+
+#registermodal {
+  max-height: 93% !important; }
+
+.modal-content {
+  border: none; }
+
+.modal.modal-fixed-footer,
+.modal-content {
+  height: calc(100% - 0px) !important; }
+
+.modal-footer {
+  margin-left: -5% !important; }
+
+.no-top {
+  top: 0 !important; }
+
+input {
+  outline: none; }
+
+.nav > li > a:focus,
+.nav > li > a:hover {
+  background: transparent !important; }
+
+.no-js #loader {
+  display: none; }
+
+.js #loader {
+  display: block;
+  position: absolute;
+  left: 100px;
+  top: 0; }
+
+.se-pre-con {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: url("http://img4.hostingpics.net/pics/242655Preloader3.gif") center no-repeat #fff; }
+
+.logo {
+  position: absolute;
+  margin-left: 40%;
+  width: 20%;
+  margin-top: 3%;
+  -webkit-transition: -webkit-transform .9s;
+  -moz-transition: -moz-transform .9s;
+  -ms-transition: -ms-transform .9s;
+  transition: transform .9s; }
+
+.logo:hover {
+  -webkit-transform: scale(1.1, 1.1);
+  -moz-transform: scale(1.1, 1.1);
+  -ms-transform: scale(1.1, 1.1);
+  transform: scale(1.1, 1.1); }
+
+.search {
+  padding: 1%;
+  margin: 15px;
+  width: 250px;
+  font-family: "Lato", sans-serif;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.44);
+  outline: none; }
+
+.go {
+  /* padding:1%; */
+  margin: 15px;
+  width: 250px;
+  font-family: "Lato", sans-serif;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  background: rgba(177, 20, 20, 0.8) !important;
+  color: white !important;
+  margin-bottom: 40px; }
+
+.intro-heading {
+  font-family: "Alfa Slab One", cursive;
+  /* text-transform:uppercase; */
+  font-weight: lighter;
+  font-size: 32px;
+  line-height: 75px;
+  margin-bottom: 32px;
+  text-align: center; }
+
+.page-footer {
+  background-color: rgba(4, 4, 4, 0.84); }
+
+.title-contact {
+  text-align: center;
+  font-family: "Alfa Slab One", cursive;
+  margin-bottom: 50px;
+  font-size: 35px; }
+
+input:not([type]):focus:not([readonly]),
+input[type=text]:focus:not([readonly]),
+input[type=password]:focus:not([readonly]),
+input[type=email]:focus:not([readonly]),
+input[type=url]:focus:not([readonly]),
+input[type=time]:focus:not([readonly]),
+input[type=date]:focus:not([readonly]),
+input[type=datetime]:focus:not([readonly]),
+input[type=datetime-local]:focus:not([readonly]),
+input[type=tel]:focus:not([readonly]),
+input[type=number]:focus:not([readonly]),
+input[type=search]:focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+  box-shadow: 0 1px 0 0 grey;
+  border-bottom: none; }
+
+label {
+  color: rgba(177, 20, 20, 0.8) !important; }
+
+.btn-submit,
+.btn-submit:hover {
+  background-color: rgba(177, 20, 20, 0.8);
+  color: white !important; }
+
+.title-login {
+  text-align: center;
+  font-family: "Alfa Slab One", cursive;
+  margin-bottom: 20px;
+  font-size: 35px; }
+
+.alert-404 {
+  background: #ff8300;
+  color: black;
+  box-shadow: 0px 0px 8px 0px #6d6464;
+  border: none; }
+
+.image404 {
+  width: 50%;
+  margin: auto;
+  margin-top: -14%; }
+
+/*# sourceMappingURL=theme.css.map */
