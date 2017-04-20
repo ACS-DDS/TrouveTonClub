@@ -9,9 +9,9 @@ var fs = require('fs')
 var cookieParser = require('cookie-parser')
 var helmet = require('helmet')
 var errorhandler = require('errorhandler')
-var multer = require('multer')
+// var multer = require('multer')
 var compression = require('compression')
-var csurf = require('csurf')
+// var csurf = require('csurf')
 var flash = require('connect-flash')
 var packagejson = require('./package.json')
 
@@ -29,7 +29,7 @@ var contact = require('./routes/contact')
 // apps
 var app = express()
 var log = fs.createWriteStream(path.join(__dirname, 'logs/' + (packagejson.name || 'access') + '.log'), {flags: 'a'})
-var upload = multer({dest: 'uploads/'})
+// var upload = multer({dest: 'uploads/'})
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))

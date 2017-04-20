@@ -1,6 +1,7 @@
 # TrouveTonClub
 
 ![NodeSecurity Logo][nodesecurity]
+![travis-ci Logo][travis-ci]
 
 TrouveTonClub is a mobile-ready, node.js powered website for searching sports club.
 
@@ -64,4 +65,5 @@ GPLv3
    [Twitter Bootstrap]: <https://getbootstrap.com/>
    [jQuery]: <https://jquery.com/>
    [express]: <https://expressjs.com/>
-   [nodesecurity]: <> "NodeSecurity Logo"
+   [nodesecurity]: <https://nodesecurity.io/orgs/acs-dds/projects/d54f29ae-5ab1-4ca6-bcfd-554e8356afc0/badge> "NodeSecurity Logo"
+   [travis-ci]: <https://api.travis-ci.org/ACS-DDS/TrouveTonClub.svg?branch=master> "travis-ci"
